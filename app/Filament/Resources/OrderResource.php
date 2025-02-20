@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\OrderResource\Pages;
 use App\Filament\Resources\OrderResource\RelationManagers;
+use App\Filament\Resources\OrderResource\RelationManagers\AddressRelationManager;
 use App\Models\Order;
 use App\Models\Product;
 use Filament\Tables\Actions\ActionGroup;
@@ -38,6 +39,7 @@ class OrderResource extends Resource
     protected static ?string $model = Order::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-shopping-bag';
+    protected static ?int $navigationSort = 5;
 
     public static function form(Form $form): Form
     {
@@ -168,7 +170,7 @@ class OrderResource extends Resource
                                     foreach($repeaters as $key=>$repeater){
                                         $total += $get("items.{$key}.total_amount");
                                     }
-                                    return Number::currency($total, 'MMK');
+                                    return Number::currency($total, 'USD');
                                 }),
                             Hidden::make('grand_total')
                                 ->default(0)
@@ -188,7 +190,7 @@ class OrderResource extends Resource
                 TextColumn::make('grand_total')
                     ->numeric()
                     ->sortable()
-                    ->money('MMK'),
+                    ->money('USD'),
                 TextColumn::make('payment_method')
                     ->searchable()
                     ->sortable(),
@@ -243,7 +245,7 @@ class OrderResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            AddressRelationManager::class
         ];
     }
 

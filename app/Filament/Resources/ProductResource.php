@@ -35,6 +35,9 @@ class ProductResource extends Resource
     protected static ?string $model = Product::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-squares-2x2';
+    protected static ?int $navigationSort = 4;
+
+    protected static ?string $recordTitleAttribute = 'name';
 
     public static function form(Form $form): Form
     {
@@ -122,7 +125,7 @@ class ProductResource extends Resource
                 TextColumn::make('brand.name')
                     ->sortable(),
                 TextColumn::make('price')
-                    ->money('MMK')
+                    ->money('USD')
                     ->sortable(),
                 IconColumn::make('is_featured')
                     ->boolean(),
