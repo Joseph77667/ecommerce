@@ -25,6 +25,11 @@ class Product extends Model
         'images'=>'array'
     ];
 
+    public function getImagesAttribute($value)
+{
+    return $value ? json_decode($value, true) : [];
+}
+
     public function category()  {
         return $this->belongsTo(Category::class);
     }

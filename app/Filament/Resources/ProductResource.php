@@ -28,7 +28,7 @@ use Filament\Tables\Actions\DeleteAction;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-use Str;
+use Illuminate\Support\Str;
 
 class ProductResource extends Resource
 {
@@ -69,7 +69,7 @@ class ProductResource extends Resource
                     ])->columnSpan(2),
 
                     Section::make('Images')->schema([
-                        FileUpload::make('image')
+                        FileUpload::make('images')
                         ->multiple()
                         ->directory('products')
                         ->maxFiles(5)
@@ -81,7 +81,7 @@ class ProductResource extends Resource
                         TextInput::make('price')
                             ->numeric()
                             ->required()
-                            ->prefix('MMK')
+                            ->prefix('USD')
                     ]),
                     Section::make('Association')->schema([
                         Select::make('category_id')
