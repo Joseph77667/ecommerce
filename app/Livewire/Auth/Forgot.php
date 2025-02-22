@@ -2,10 +2,27 @@
 
 namespace App\Livewire\Auth;
 
+use Illuminate\Support\Facades\Password;
+use Illuminate\Validation\Rule;
+use Livewire\Attributes\Title;
 use Livewire\Component;
+#[Title('E-Commerce-> Forgot Password')]
 
 class Forgot extends Component
 {
+    public $email;
+
+    public function save(){
+        $this->validate([
+            'email'=>['required','email',Rule::exists('users','email')]
+        ]);
+        $status = Password::sendResetLink(['email'=>$this->email]);
+
+        if($status === Password::RESET_LINK_SENT){
+            session()->flash('success','Password reset link to your email address.');
+            $this->email='';
+        }
+    }
     public function render()
     {
         return view('livewire.auth.forgot');
