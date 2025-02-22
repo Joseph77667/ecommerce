@@ -27,6 +27,7 @@ class Register extends Component
             'name' => $this->name,
             'email' => $this->email,
             'password' => Hash::make($this->password),
+            'email_verified_at' => now()
         ]);
 
         auth()->login($user);
