@@ -1,22 +1,36 @@
 <div>
     {{-- // hero section --}}
-<div class="w-full h-screen bg-gradient-to-r from-blue-200 to-cyan-200 py-10 px-4 sm:px-6 lg:px-8 mx-auto">
+<div class="w-full h-screen bg-gradient-to-r from-blue-200 to-yellow-500 py-10 px-4 sm:px-6 lg:px-8 mx-auto">
     <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8">
       <!-- Grid -->
       <div class="grid md:grid-cols-2 gap-4 md:gap-8 xl:gap-20 md:items-center">
         <div>
-          <h1 class="block text-3xl font-bold text-gray-800 sm:text-4xl lg:text-6xl lg:leading-tight dark:text-white">Start your journey with <span class="text-blue-600">DCodeMania</span></h1>
+          <h1 class="block text-3xl font-bold text-gray-800 sm:text-4xl lg:text-6xl lg:leading-tight dark:text-white">Start your journey with <span class="text-blue-600">CodingJoseph</span></h1>
           <p class="mt-3 text-lg text-gray-800 dark:text-gray-400">Purchase wide varities of electronics products like Smartphones, Laptops, Smartwatches, Television and many more.</p>
   
           <!-- Buttons -->
           <div class="mt-7 grid gap-3 w-full sm:inline-flex">
-            <a class="py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" href="/register">
+            @guest
+            <a wire:navigate
+            class="py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" 
+            href="/register">
               Get started
               <svg class="flex-shrink-0 w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="m9 18 6-6-6-6" />
               </svg>
             </a>
-            <a class="py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" href="/contact">
+            @else
+            <a wire:navigate
+            class="py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" 
+            href="/products">
+              Get started
+              <svg class="flex-shrink-0 w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m9 18 6-6-6-6" />
+              </svg>
+            </a>
+            @endguest
+            <a class="py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" 
+              href="">
               Contact sales team
             </a>
           </div>
@@ -79,13 +93,13 @@
                   <path d="M27.0352 1.6307L33.9181 16.3633C34.2173 16.6768 34.5166 16.9903 34.8158 16.9903L50.0779 19.1845C50.9757 19.1845 51.275 20.4383 50.6764 21.0652L39.604 32.3498C39.3047 32.6632 39.3047 32.9767 39.3047 33.2901L41.998 49.2766C42.2973 50.217 41.1002 50.8439 40.5017 50.5304L26.4367 43.3208C26.1375 43.3208 25.8382 43.3208 25.539 43.3208L11.7732 50.8439C10.8754 51.1573 9.97763 50.5304 10.2769 49.59L12.9702 33.6036C12.9702 33.2901 12.9702 32.9767 12.671 32.6632L1.29923 21.0652C0.700724 20.4383 0.999979 19.4979 1.89775 19.4979L17.1598 17.3037C17.459 17.3037 17.7583 16.9903 18.0575 16.6768L24.9404 1.6307C25.539 0.69032 26.736 0.69032 27.0352 1.6307Z" fill="currentColor" />
                 </svg>
                 <svg class="h-4 w-4 text-gray-800 dark:text-gray-200" width="51" height="51" viewBox="0 0 51 51" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M49.6867 20.0305C50.2889 19.3946 49.9878 18.1228 49.0846 18.1228L33.7306 15.8972C33.4296 15.8972 33.1285 15.8972 32.8275 15.2613L25.9032 0.317944C25.6021 0 25.3011 0 25 0V42.6046C25 42.6046 25.3011 42.6046 25.6021 42.6046L39.7518 49.9173C40.3539 50.2352 41.5581 49.5994 41.2571 48.6455L38.5476 32.4303C38.5476 32.1124 38.5476 31.7944 38.8486 31.4765L49.6867 20.0305Z" fill="transparent" />
-                  <path d="M0.313299 20.0305C-0.288914 19.3946 0.0122427 18.1228 0.915411 18.1228L16.2694 15.8972C16.5704 15.8972 16.8715 15.8972 17.1725 15.2613L24.0968 0.317944C24.3979 0 24.6989 0 25 0V42.6046C25 42.6046 24.6989 42.6046 24.3979 42.6046L10.2482 49.9173C9.64609 50.2352 8.44187 49.5994 8.74292 48.6455L11.4524 32.4303C11.4524 32.1124 11.4524 31.7944 11.1514 31.4765L0.313299 20.0305Z" fill="currentColor" />
+                  <path d="M27.0352 1.6307L33.9181 16.3633C34.2173 16.6768 34.5166 16.9903 34.8158 16.9903L50.0779 19.1845C50.9757 19.1845 51.275 20.4383 50.6764 21.0652L39.604 32.3498C39.3047 32.6632 39.3047 32.9767 39.3047 33.2901L41.998 49.2766C42.2973 50.217 41.1002 50.8439 40.5017 50.5304L26.4367 43.3208C26.1375 43.3208 25.8382 43.3208 25.539 43.3208L11.7732 50.8439C10.8754 51.1573 9.97763 50.5304 10.2769 49.59L12.9702 33.6036C12.9702 33.2901 12.9702 32.9767 12.671 32.6632L1.29923 21.0652C0.700724 20.4383 0.999979 19.4979 1.89775 19.4979L17.1598 17.3037C17.459 17.3037 17.7583 16.9903 18.0575 16.6768L24.9404 1.6307C25.539 0.69032 26.736 0.69032 27.0352 1.6307Z" fill="currentColor" />
                 </svg>
+                
               </div>
   
               <p class="mt-3 text-sm text-gray-800 dark:text-gray-200">
-                <span class="font-bold">4.8</span> /5 - from 5k reviews
+                <span class="font-bold">5.7</span> /7 - from 8k reviews
               </p>
   
               <div class="mt-5">
@@ -146,8 +160,9 @@
     <div class="max-w-xl mx-auto">
       <div class="text-center ">
         <div class="relative flex flex-col items-center">
-          <h1 class="text-5xl font-bold dark:text-gray-200"> Browse Popular<span class="text-blue-500"> Brands
-            </span> </h1>
+          <h1 class="text-5xl font-bold dark:text-gray-200"> Available Popular<span class="text-blue-500"> Brands
+            </span> 
+          </h1>
           <div class="flex w-40 mt-2 mb-6 overflow-hidden rounded">
             <div class="flex-1 h-2 bg-blue-200">
             </div>
@@ -168,12 +183,12 @@
       <div class="grid grid-cols-1 gap-6 lg:grid-cols-4 md:grid-cols-2">
   
         @foreach ($brands as $brand)
-        <div class="bg-white rounded-lg shadow-md dark:bg-gray-800" wire:key="{{$brand->id}}">
+        <div class="bg-white rounded-md shadow-md dark:bg-gray-800" wire:key="{{$brand->id}}">
           <a href="/products?selected_brands[0]={{$brand->id}}" class="">
             <img src="{{url('storage', $brand->image)}}" 
-            alt="{{$brand->name}}" class="object-cover w-full h-64 rounded-t-lg">
+            alt="{{$brand->name}}" class="object-fit w-full h-64 rounded-t-lg">
           </a>
-          <div class="p-5 text-center">
+          <div class="p-5 mt-2 text-center">
             <a href="" class="text-2xl font-bold tracking-tight text-gray-900 dark:text-gray-300">
               {{$brand->name}}
             </a>
@@ -186,7 +201,7 @@
   </section>
 
 {{-- category section --}}
-<div class="bg-orange-200 py-20">
+<div class="bg-green-200 py-20">
     <div class="max-w-xl mx-auto">
       <div class="text-center ">
         <div class="relative flex flex-col items-center">

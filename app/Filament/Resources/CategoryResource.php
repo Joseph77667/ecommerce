@@ -53,7 +53,8 @@ class CategoryResource extends Resource
 
                         FileUpload::make('image')
                             ->image()
-                            ->directory('categories'),
+                            ->directory('categories')
+                            ->disk('public'),
 
                         Toggle::make('is_active')
                             ->required()
@@ -69,7 +70,8 @@ class CategoryResource extends Resource
                 Tables\Columns\TextColumn::make('name')
                     ->searchable(),
                 
-                Tables\Columns\ImageColumn::make('image'),
+                Tables\Columns\ImageColumn::make('image')
+                    ->url(fn($record) => asset('storage/' . $record->image)),
 
                 Tables\Columns\TextColumn::make('slug')
                     ->searchable(),

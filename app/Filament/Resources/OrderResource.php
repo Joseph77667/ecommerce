@@ -170,6 +170,7 @@ class OrderResource extends Resource
                                     foreach($repeaters as $key=>$repeater){
                                         $total += $get("items.{$key}.total_amount");
                                     }
+                                    $set('grand_total', $total);
                                     return Number::currency($total, 'USD');
                                 }),
                             Hidden::make('grand_total')

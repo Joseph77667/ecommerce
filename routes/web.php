@@ -16,6 +16,8 @@ use App\Livewire\ProductsPage;
 use App\Livewire\SuccessPage;
 use Illuminate\Support\Facades\Route;
 
+use function Laravel\Prompts\password;
+
 Route::get('/', HomePage::class);
 Route::get('/categories', CategoriesPage::class);
 Route::get('/products', ProductsPage::class);
@@ -26,8 +28,8 @@ Route::get('/products/{slug}', ProductDetailPage::class);
 Route::middleware('guest')->group(function(){
     Route::get('/login', Login::class)->name('login');
     Route::get('/register', Register::class);
-    Route::get('/forgot', Forgot::class);
-    Route::get('/reset', ResetPassword::class);
+    Route::get('/forgot', Forgot::class)->name('password.request');
+    Route::get('/reset/{token}', ResetPassword::class)->name('password.reset');
 });
 
 Route::middleware('auth')->group(function(){
