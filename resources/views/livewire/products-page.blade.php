@@ -88,23 +88,24 @@
             </div>
           </div>
           <div class="w-full px-3 lg:w-3/4">
-            <div class="px-3 mb-4">
-              <div class="items-center justify-between hidden px-3 py-2 bg-gray-100 md:flex dark:bg-gray-900 ">
-                <div class="flex items-center justify-between">
+            <div class="w-56 px-3 mb-4">
+              <div class="items-center justify-end right-0 hidden px-3 py-2 bg-gray-300 md:flex dark:bg-gray-900 ">
+                <div class="flex items-center justify-between w-full">
                   <select 
                   wire:model.live="sort"
-                  name="" id="" class="block w-40 text-base bg-gray-100 cursor-pointer dark:text-gray-400 dark:bg-gray-900">
+                  name="" id="" class="hover:outline-none w-full text-base bg-gray-300 cursor-pointer dark:text-gray-400 dark:bg-gray-900">
                     <option value="latest">Sort by latest</option>
                     <option value="price">Sort by Price</option>
                   </select>
                 </div>
               </div>
             </div>
+
             <div class="flex flex-wrap items-center ">
   
               @foreach ($products as $product)
               <div wire:key="{{$product->id}}" class="w-full px-3 mb-6 sm:w-1/2 md:w-1/3">
-                <div class="border border-gray-300 dark:border-gray-700">
+                <div class="border border-gray-300 rounded-sm dark:border-gray-700">
                   <div class="relative bg-gray-200">
                     <a href="/products/{{$product->slug}}" class="">
                       <img src="{{url('storage',$product->images[0])}}" 

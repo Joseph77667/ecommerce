@@ -1,6 +1,6 @@
 <div>
     {{-- // hero section --}}
-<div class="w-full h-screen bg-gradient-to-r from-blue-200 to-yellow-500 py-10 px-4 sm:px-6 lg:px-8 mx-auto">
+<div class="w-full h-screen bg-gradient-to-r from-yellow-200 to-yellow-500 py-10 px-4 sm:px-6 lg:px-8 mx-auto">
     <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8">
       <!-- Grid -->
       <div class="grid md:grid-cols-2 gap-4 md:gap-8 xl:gap-20 md:items-center">
@@ -119,44 +119,19 @@
           </div>
           <!-- End Review -->
         </div>
-        <!-- End Col -->
-  
         <div class="relative ms-4">
-          <img class="w-full rounded-md" src="https://static.vecteezy.com/system/resources/previews/011/993/278/non_2x/3d-render-online-shopping-bag-using-credit-card-or-cash-for-future-use-credit-card-money-financial-security-on-mobile-3d-application-3d-shop-purchase-basket-retail-store-on-e-commerce-free-png.png" alt="Image Description">
+          <img class="rounded-md w-[30rem] ml-5 mt-10 object-fit" 
+          src="https://img.freepik.com/free-vector/online-shopping-banner-mobile-app-templates-concept-flat-design_1150-34862.jpg" 
+          alt="Image Description">
           <div class="absolute inset-0 -z-[1] bg-gradient-to-tr from-gray-200 via-white/0 to-white/0 w-full h-full rounded-md mt-4 -mb-4 me-4 -ms-4 lg:mt-6 lg:-mb-6 lg:me-6 lg:-ms-6 dark:from-slate-800 dark:via-slate-900/0 dark:to-slate-900/0"></div>
-  
-          <!-- SVG-->
-          <div class="absolute bottom-0 start-0">
-            <svg class="w-2/3 ms-auto h-auto text-white dark:text-slate-900" width="630" height="451" viewBox="0 0 630 451" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="531" y="352" width="99" height="99" fill="currentColor" />
-              <rect x="140" y="352" width="106" height="99" fill="currentColor" />
-              <rect x="482" y="402" width="64" height="49" fill="currentColor" />
-              <rect x="433" y="402" width="63" height="49" fill="currentColor" />
-              <rect x="384" y="352" width="49" height="50" fill="currentColor" />
-              <rect x="531" y="328" width="50" height="50" fill="currentColor" />
-              <rect x="99" y="303" width="49" height="58" fill="currentColor" />
-              <rect x="99" y="352" width="49" height="50" fill="currentColor" />
-              <rect x="99" y="392" width="49" height="59" fill="currentColor" />
-              <rect x="44" y="402" width="66" height="49" fill="currentColor" />
-              <rect x="234" y="402" width="62" height="49" fill="currentColor" />
-              <rect x="334" y="303" width="50" height="49" fill="currentColor" />
-              <rect x="581" width="49" height="49" fill="currentColor" />
-              <rect x="581" width="49" height="64" fill="currentColor" />
-              <rect x="482" y="123" width="49" height="49" fill="currentColor" />
-              <rect x="507" y="124" width="49" height="24" fill="currentColor" />
-              <rect x="531" y="49" width="99" height="99" fill="currentColor" />
-            </svg>
-          </div>
-          <!-- End SVG-->
         </div>
-        <!-- End Col -->
       </div>
       <!-- End Grid -->
     </div>
   </div>
 
 {{-- //brand section --}}
-<section class="py-20">
+<section class="py-20 bg-white">
     <div class="max-w-xl mx-auto">
       <div class="text-center ">
         <div class="relative flex flex-col items-center">
@@ -183,8 +158,8 @@
       <div class="grid grid-cols-1 gap-6 lg:grid-cols-4 md:grid-cols-2">
   
         @foreach ($brands as $brand)
-        <div class="bg-white rounded-md shadow-md dark:bg-gray-800" wire:key="{{$brand->id}}">
-          <a href="/products?selected_brands[0]={{$brand->id}}" class="">
+        <div class="border rounded-md shadow-lg dark:bg-gray-800" wire:key="{{$brand->id}}">
+          <a href="/products?selected_brands[0]={{$brand->id}}" class="py-3">
             <img src="{{url('storage', $brand->image)}}" 
             alt="{{$brand->name}}" class="object-fit w-full h-64 rounded-t-lg">
           </a>
@@ -201,14 +176,14 @@
   </section>
 
 {{-- category section --}}
-<div class="bg-green-200 py-20">
+<div class="bg-green-300 py-20">
     <div class="max-w-xl mx-auto">
       <div class="text-center ">
         <div class="relative flex flex-col items-center">
-          <h1 class="text-5xl font-bold dark:text-gray-200"> Browse <span class="text-blue-500"> Categories
+          <h1 class="text-5xl font-bold dark:text-gray-300"> Available <span class="text-yellow-600"> Categories
             </span> </h1>
-          <div class="flex w-40 mt-2 mb-6 overflow-hidden rounded">
-            <div class="flex-1 h-2 bg-blue-200">
+          <div class="flex w-48 mt-2 mb-6 overflow-hidden rounded">
+            <div class="flex-1 h-2 bg-blue-300">
             </div>
             <div class="flex-1 h-2 bg-blue-400">
             </div>
@@ -229,8 +204,10 @@
   
         @foreach ($categories as $category)
         <a wire:key="{{$category->id}}"
-        class="group flex flex-col bg-white border shadow-sm rounded-xl hover:shadow-md transition dark:bg-slate-900 dark:border-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" 
-        href="/products?selected_categories[0]={{$category->id}}">
+        class="group flex flex-col bg-white border shadow-sm rounded-xl hover:shadow-md transition
+         dark:bg-slate-900 dark:border-gray-800 dark:focus:outline-none dark:focus:ring-1
+          dark:focus:ring-gray-600" 
+          href="/products?selected_categories[0]={{$category->id}}">
           <div class="p-4 md:p-5">
             <div class="flex justify-between items-center">
               <div class="flex items-center">
